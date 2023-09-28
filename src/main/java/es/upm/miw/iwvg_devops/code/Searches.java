@@ -20,4 +20,12 @@ public class Searches {
                         || (fraction.getNumerator() > 0 && fraction.getDenominator() < 0))
                 .map(fraction -> fraction.decimal());
     }
+
+    public Stream<String> findUserFamilyNameByAllNegativeSignFractionDistinct() {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .anyMatch(fraction -> fraction.isNegative()))
+                .map(user -> user.getFamilyName()) 
+                .distinct();
+    }
 }
