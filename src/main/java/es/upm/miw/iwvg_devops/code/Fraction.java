@@ -57,6 +57,18 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper() {
+        return numerator < denominator;
+    }
+
+    public boolean isImproper() {
+        return numerator >= denominator;
+    }
+
+    public boolean isEquivalent(Fraction fraction) {
+        return fraction.getNumerator() * this.denominator == fraction.getDenominator() * this.numerator; 
+    }
+    
     @Override
     public String toString() {
         return "Fraction{" +
