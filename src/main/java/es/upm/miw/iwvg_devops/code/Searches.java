@@ -26,6 +26,9 @@ public class Searches {
                         .anyMatch(Fraction::isNegative))
                 .map(User::getFamilyName) 
                 .distinct();
+                //
+                // BUG FIXED
+                //
     }
 
     public Fraction findFractionAdditionByUserId(String id) {
