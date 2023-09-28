@@ -68,7 +68,25 @@ public class Fraction {
     public boolean isEquivalent(Fraction fraction) {
         return fraction.getNumerator() * this.denominator == fraction.getDenominator() * this.numerator; 
     }
-    
+        
+    public Fraction add(Fraction fraction) {
+        int numerator = this.numerator * fraction.getDenominator() + fraction.getNumerator() * this.denominator;
+        int denominator = this.denominator * fraction.getDenominator();
+        return new Fraction(numerator, denominator);
+    }
+
+    public Fraction multiply(Fraction fraction) {
+        int numerator = this.numerator * fraction.getNumerator();
+        int denominator = this.denominator * fraction.getDenominator();
+        return new Fraction(numerator, denominator);
+    }
+
+    public Fraction divide(Fraction fraction) {
+        int numerator = this.numerator * fraction.getDenominator();
+        int denominator = this.denominator * fraction.getNumerator();
+        return new Fraction(numerator, denominator);
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
