@@ -35,4 +35,12 @@ public class SearchesTest {
         List<String> expectedResult = List.of("Blanco", "López");
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    void testFindFractionAdditionByUserId() {
+        Fraction result = search.findFractionAdditionByUserId("1");
+        Fraction expectedResult = new Fraction(3, 1);
+        assertEquals(expectedResult.getNumerator(), result.getNumerator());
+        assertEquals(expectedResult.getDenominator(), result.getDenominator());
+    }
 }
