@@ -8,7 +8,7 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getId().equals(id)) 
                 .flatMap(user -> user.getFractions().stream()) 
-                .filter(fraction -> fraction.isProper()) 
+                .filter(Fraction::isProper) 
                 .findFirst() 
                 .orElse(null); 
     }
@@ -16,16 +16,15 @@ public class Searches {
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
         return new UsersDatabase().findAll()
                 .flatMap(user -> user.getFractions().stream())
-                .filter(fraction -> (fraction.getNumerator() < 0 && fraction.getDenominator() > 0)
-                        || (fraction.getNumerator() > 0 && fraction.getDenominator() < 0))
-                .map(fraction -> fraction.decimal());
+                .filter(Fraction::isNegative)
+                .map(Fraction::decimal);
     }
 
     public Stream<String> findUserFamilyNameByAllNegativeSignFractionDistinct() {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getFractions().stream()
-                        .anyMatch(fraction -> fraction.isNegative()))
-                .map(user -> user.getFamilyName()) 
+                        .anyMatch(Fraction::isNegative))
+                .map(User::getFamilyName) 
                 .distinct();
     }
 
