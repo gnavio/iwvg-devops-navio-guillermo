@@ -74,21 +74,21 @@ public class Fraction {
     }
         
     public Fraction add(Fraction fraction) {
-        int numerator = this.numerator * fraction.getDenominator() + fraction.getNumerator() * this.denominator;
-        int denominator = this.denominator * fraction.getDenominator();
-        return new Fraction(numerator, denominator);
+        int newNumerator = this.numerator * fraction.getDenominator() + fraction.getNumerator() * this.denominator;
+        int newDenominator = this.denominator * fraction.getDenominator();
+        return new Fraction(newNumerator, newDenominator);
     }
 
     public Fraction multiply(Fraction fraction) {
-        int numerator = this.numerator * fraction.getNumerator();
-        int denominator = this.denominator * fraction.getDenominator();
-        return new Fraction(numerator, denominator);
+        int newNumerator = this.numerator * fraction.getNumerator();
+        int newDenominator = this.denominator * fraction.getDenominator();
+        return new Fraction(newNumerator, newDenominator);
     }
 
     public Fraction divide(Fraction fraction) {
-        int numerator = this.numerator * fraction.getDenominator();
-        int denominator = this.denominator * fraction.getNumerator();
-        return new Fraction(numerator, denominator);
+        int newNumerator = this.numerator * fraction.getDenominator();
+        int newDenominator = this.denominator * fraction.getNumerator();
+        return new Fraction(newNumerator, newDenominator);
     }
 
     @Override
