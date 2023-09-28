@@ -28,4 +28,11 @@ public class SearchesTest {
         List<Double> expectedResult = List.of(-0.2, -0.5);
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    void testFindUserFamilyNameByAllNegativeSignFractionDistinct() {
+        List<String> result = search.findUserFamilyNameByAllNegativeSignFractionDistinct().collect(Collectors.toList());
+        List<String> expectedResult = List.of("Blanco", "López");
+        assertEquals(expectedResult, result);
+    }
 }

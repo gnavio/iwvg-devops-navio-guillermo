@@ -68,6 +68,10 @@ public class Fraction {
     public boolean isEquivalent(Fraction fraction) {
         return fraction.getNumerator() * this.denominator == fraction.getDenominator() * this.numerator; 
     }
+
+    public boolean isNegative() {
+        return numerator * denominator < 0;
+    }
         
     public Fraction add(Fraction fraction) {
         int numerator = this.numerator * fraction.getDenominator() + fraction.getNumerator() * this.denominator;
