@@ -28,4 +28,13 @@ public class Searches {
                 .map(user -> user.getFamilyName()) 
                 .distinct();
     }
+
+    public Fraction findFractionAdditionByUserId(String id) {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getId().equals(id))
+                .findFirst()
+                .map(user -> user.getFractions().stream()
+                        .reduce(new Fraction(0, 1), Fraction::add))
+                .orElse(new Fraction(0, 1)); 
+    }
 }
